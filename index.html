@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <title>quitz template</title>
     <style>
-        body {
+body {
             background-color: whitesmoke;
             font-size: 20pt;
             font-family: Arial, Helvetica, sans-serif;
@@ -23,15 +23,18 @@
             border-radius: 2px;
             border: #dcdcdc solid 1px;
         }
+
         .question-title {
             padding-bottom: 20px;
             font-size: 40pt;
         }
+
         .steps-container {
             margin: 40px 20px;
             padding: 20px;
             text-align: center
         }
+
         .answer-button {
             border-radius: 2px;
             border: #dcdcdc solid 1px;
@@ -40,6 +43,7 @@
             padding: 20px;
             margin: 20px 0;
         }
+
         .answer-button-active {
             border-radius: 2px;
             border: #dcdcdc solid 1px;
@@ -49,6 +53,7 @@
             padding: 20px;
             margin: 20px 0;
         }
+
         .answer-button-right {
             border-radius: 2px;
             border: #27ae60 solid 1px;
@@ -58,6 +63,7 @@
             padding: 20px;
             margin: 20px 0;
         }
+
         .answer-button-wrong {
             border-radius: 2px;
             border: #c0392b solid 1px;
@@ -67,12 +73,13 @@
             padding: 20px;
             margin: 20px 0;
         }
+
         .next-button {
             background-color: #01bcd5;
             padding: 40px;
             border-radius: 2px;
             border: #dcdcdc solid 1px;
-            
+            position: absolute;
             bottom: 20px;
             right: 10%;
             font-size: 30pt;
@@ -80,19 +87,7 @@
             color: #005e6a;
             width: calc(80% - 80px);
         }
-        .back-button {
-            background-color: #01bcd5;
-            padding: 40px;
-            border-radius: 2px;
-            border: #dcdcdc solid 1px;
-            
-            bottom: 20px;
-            right: 10%;
-            font-size: 30pt;
-            text-align: center;
-            color: #005e6a;
-            width: calc(80% - 80px);
-        }
+
         .active-step {
             background-color: #01bcd5;
             border: #dcdcdc solid 1px;
@@ -102,6 +97,7 @@
             display: inline-block;
             margin: 20px;
         }
+
         .step {
             background-color: #dcdcdc;
             border: #dcdcdc solid 1px;
