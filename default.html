@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="stylesheet.css" />
+    <title>quitz template</title>
+    
+</head>
+
+<body>
+    <div class="steps-container" id="steps-container">
+
+    </div>
+    <div class="question-container" id="question-container">
+        <div class="question-title" id="question-title">
+            Question
+        </div>
+
+        <div class="answers-container" id="answers-container">
+
+        </div>
+
+    </div>
+    <br /><br />
+    <div class="grid-container">
+        <div class="grid-item">
+            <div class="back-button" id="back-button">
+                Back
+            </div>
+        </div>
+        <div class="grid-item" id="next-button-column">
+            <div class="next-button" id="next-button">
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>MULTIPLE_CHOICE = 0;
+        TEXT = 1;
+        DRAG_N_DROP = 2;
+        FILL_IN_BLANKS = 3;
+        END = 4;
+
+        var items = [
+            {
+                id: 7,
+                question: 'Error!!',
+                type: END,
+                txt: 'There seems to be a problem here, no quiz was found!',
+
+
+            }
+        ]
+
+        var step = 0
+        var correct = true
+        var answer = ""
+        var questionTitle = document.getElementById('question-title')
+        var questionAnswersContainer = document.getElementById('answers-container')
+        var nextButton = document.getElementById('next-button')
+        var stepsContainer = document.getElementById('steps-container')
+        var backButton = document.getElementById('back-button')
+
+
+        document.addEventListener("backbutton", onBackKeyDown, false);
+
+        function onBackKeyDown() {
+            if (step > 0) {
+                step--
+                updateQuestion()
+                updateSteps()
+            }
+        }
+
+        backButton.onclick = function () {
+            if (step > 0) {
+                step--
+                updateQuestion()
+                updateSteps()
+            }
+        }
+
+
+        nextButton.onclick = function () {
+            console.log(correct)
+            if (items[step].type == FILL_IN_BLANKS && correct) {
+                checkAnswer(document.getElementById('input_1').value)
+            }
+            else {
+                nextButton.style.background = '#01bcd5'
+                step++
+                updateQuestion()
+                updateSteps()
+            }
+        }
+
+        var checkAnswer = function (answer) {
+            console.log(document.getElementById('input_1').value)
+            if (items[step].answers[0].answer == answer) {
+                console.log('answer correct')
+                nextButton.style.background = '#8DC443'
+                nextButton.innerHTML = 'Next'
+                correct = false
+            }
+            else {
+                nextButton.style.background = '#FF0000'
+                nextButton.innerHTML = 'Try Again'
+            }
+        }
+
+        var updateSteps = function () {
+            stepsContainer.innerHTML = ''
+            var stepsElements = ''
+            items.forEach(function (item, i) {
+                if (i <= step) {
+                    stepsElements += '<span class="active-step"></span>'
+                }
+                else {
+                    stepsElements += '<span class="step"></span>'
+                }
+            })
+
+            stepsContainer.innerHTML = stepsElements
+        }
+
+        var updateQuestion = function () {
+            if (items.length <= step) {
+                return
+            }
+            questionTitle.innerHTML = ''
+            questionAnswersContainer.innerHTML = ''
+
+            questionTitle.innerHTML = items[step].question
+
+            renderAnswers()
+        }
+
+        var renderAnswers = function (type) {
+            var answersElements = ''
+            var x = document.getElementById("next-button-column");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            }
+
+            if (items[step].type == MULTIPLE_CHOICE) {
+                nextButton.innerHTML = 'Next'
+                if (items[step].txt) { answersElements = items[step].txt }
+                items[step].answers.forEach(function (a, i) {
+                    if (a.chosen) {
+                        if (a.right) {
+                            answersElements += '<div class="answer-button-right" id="answer-' + step + '-' + i + '"> ' + a.answer + ' </div>'
+                        }
+                        else {
+                            answersElements += '<div class="answer-button-wrong" id="answer-' + step + '-' + i + '"> ' + a.answer + ' </div>'
+                        }
+
+                    }
+                    else {
+                        answersElements += '<div class="answer-button" id="answer-' + step + '-' + i + '"> ' + a.answer + ' </div>'
+                    }
+                })
+
+                questionAnswersContainer.innerHTML = answersElements
+
+                items[step].answers.forEach(function (a, i) {
+                    var stepButton = document.getElementById('answer-' + step + '-' + i)
+                    stepButton.onclick = function () {
+                        chooseAnswer(i)
+                    }
+                })
+            }
+            else if (items[step].type == TEXT) {
+                nextButton.innerHTML = 'Next'
+                questionAnswersContainer.innerHTML = '<div style="padding:5%" id="answer-' + step + '"><p>' + items[step].txt + '</p></div>'
+            }
+            else if (items[step].type == FILL_IN_BLANKS) {
+                nextButton.innerHTML = 'Check'
+                questionAnswersContainer.innerHTML = '<div id="answer-' + step + '"><p>' + items[step].txt + '<input id="input_1" style="border: 0;border-bottom: 2px solid" type="text"></p></div>'
+            }
+            else if (items[step].type == DRAG_N_DROP) {
+                questionAnswersContainer.innerHTML = '<code><div id="div8" ondrop="drop(event)" ondragover="allowDrop(event)">' + items[step].txt + '</div><br>'
+                items[step].answers.forEach(function (a, i) {
+                    questionAnswersContainer.innerHTML += '<br><div id="div' + i + '" ondrop="drop(event)" ondragover="allowDrop(event)"><label id="answer-' + step + '-' + i + '" draggable="true" ondragstart="drag(event)" width="336" height="69"><code>' + a.answer + '</code></label></div>'
+                })
+                questionAnswersContainer.innerHTML += '</code>'
+                nextButton.innerHTML = 'Check'
+
+
+            } else if (items[step].type == END) {
+                document.getElementById('next-button-column').style.display = "none"
+                questionAnswersContainer.innerHTML = '<div style="padding:5%" id="answer-' + step + '"><p>' + items[step].txt + '</p></div>'
+            }
+
+        }
+
+        var chooseAnswer = function (answerIndex) {
+            if (step >= items.length) {
+                return
+            }
+
+            items[step].answers.forEach(function (a, i) {
+                if (i == answerIndex) {
+                    a.chosen = true
+                }
+                else {
+                    a.chosen = false
+                }
+            })
+
+            renderAnswers()
+        }
+
+        updateQuestion()
+        updateSteps()
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+            answer = data
+            if (ev.target.id == 'div8') {
+                items[step].answers.forEach(function (a, i) {
+                    if (a.right) {
+                        console.log(a.answer)
+                        console.log(('answer-' + step + '-' + i).toString())
+                        if (data == ('answer-' + step + '-' + i).toString()) {
+                            nextButton.style.background = '#8DC443'
+                            nextButton.innerHTML = 'Next'
+                        }
+                        else {
+                            nextButton.style.background = '#d03e2f'
+                        }
+                    }
+                })
+            }
+            else {
+                nextButton.style.background = '#01bcd5'
+            }
+        }</script>
+</body>
+
+</html>
