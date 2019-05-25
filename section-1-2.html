@@ -92,6 +92,12 @@
                         answer: '<p><code><font color="blue">let rec</font> length L = <br><font color="blue">match</font> L <font color="blue">with</font><br>| []      -> 0<br>' +
                             '| e::rest -> e + length rest</code></p>'
 
+                    },
+                    {
+                        id: 3,
+                        answer: '<p><code><font color="blue">let rec</font> length L = <br><font color="blue">match</font> L <font color="blue">with</font><br>| []      -> 0<br>' +
+                            '| e::[]   -> 1<br>| e::rest -> 2 + length rest</code></p>'
+
                     }
                 ]
             },
