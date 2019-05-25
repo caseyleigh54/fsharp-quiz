@@ -45,14 +45,7 @@
         END = 4;
 
         var items = [
-            {
-                id:0,
-                question: 'read the code',
-                type: TEXT,
-                txt: '<code>#light<br>let rec factorial n = <br>match n with <br>| 0 -> 1<br>| _ -> n * factorial (n-1)' +
-                    '<br>[<EntryPoint>]<br>let main argv =<br>printfn ""<br><br>let R = factorial 5<br>printfn "%A" R'+
-                    '<br><br>printfn ""<br>printfn ""<br>0</code>'
-            },
+            
             {
                 id: 0,
                 question: 'What is F#?',
@@ -84,13 +77,20 @@
                 ]
             },
             {
-                id: 0,
-                question: 'Your First F# Program',
+                id: 2,
+                question: 'Why functional programming?',
                 type: TEXT,
-                txt: 'A F# program is a collection of functional commands and statements' +
-                    'Below is a simple code that has "Hello world!" as its output.' + '<br><br><code>open System <br>let main() = Console.WriteLine("Hello World!") <br><br>main()</code>' +
-                    '<br><br><mark>Note: F# does not use semicolons ; at the end of statements like C++ and Java</mark>'
-
+                txt: '<p>#1 it is <b>More Declarative</b><br><ul><li>More time declaring what you <u>want</u>, and less time specifying <u>how</u> to do it</li></ul>' +
+                    '<br>#2 it has a <b>Lack of variables</b> “side-effects”<br><ul><li>Easier to reason about program correctness</li></ul></p>'+
+                    '<mark>In functional programming variables are by default immutable. This means their value cannot be changed i.e. there is no side effect.</mark>'
+            },
+            {
+                id:0,
+                question: 'read the code',
+                type: TEXT,
+                txt: '<code>#light<br>let rec factorial n = <br>match n with <br>| 0 -> 1<br>| _ -> n * factorial (n-1)' +
+                    '<br>[<EntryPoint>]<br>let main argv =<br>printfn ""<br><br>let R = factorial 5<br>printfn "%A" R'+
+                    '<br><br>printfn ""<br>printfn ""<br>0</code>' 
             },
             {
                 id: 0,
