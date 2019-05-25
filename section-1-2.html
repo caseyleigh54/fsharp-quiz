@@ -47,9 +47,53 @@
         var items = [
             {
                 id: 0,
-                question: 'Title',
+                question: 'Writing Code in F#',
                 type: TEXT,
-                txt: 'Text Section'
+                txt: '<b>Read the following code:</b><br><br>'+'<code>#light<br>let rec factorial n = <br>match n with <br>| 0 -> 1<br>| _ -> n * factorial (n-1)' +
+        '<br><br>[&#60;EntryPoint&#62;]<br>let main argv =<br>printfn ""<br><br>let R = factorial 5<br>printfn "%A" R'+
+        '<br><br>printfn ""<br>printfn ""<br>0</code>' 
+            },
+            {
+                id: 1,
+                question: 'Things to notice...',
+                type: TEXT,
+                txt: '<code>#light<br>let rec factorial n = <br>match n with <br>| 0 -> 1<br>| _ -> n * factorial (n-1)</code>'+
+                '<p><ul><li>Case sensitive</li><li>#light ==> indentation sensitive</li><li>no ; and no { }</li><li><b>Use spaces</b>, not tabs.</li></ul></p>'
+            },
+            {
+                id: 2,
+                question: 'Things to notice...',
+                type: TEXT,
+                txt: '<code>#light<br>let rec factorial n = <br>match n with <br>| 0 -> 1<br>| _ -> n * factorial (n-1)</code>'+
+                '<p><ul><li>Recursive function declaration</li><li>Base and inductive cases…</li><li>Function type inferred:<br><b>val factorial : int -> int</b></li></ul></p>'+
+                '<mark>the type inference will show up in your F# editor like this… </mark>'
+            },
+            {
+                id: 2,
+                question: 'Things to notice...',
+                type: TEXT,
+                txt: '<code>let R = factorial 5 </code>' + '<p>no <b>( )</b> when calling a function</p>'+
+                    '<code>printfn "%A" R</code>'+ '<p><b>A</b>nything – The A stands for anything, you do not need to declare what type it is<p></p>'
+            },
+            {
+                id: 2,
+                question: 'Suppose L is a list.  Which function correctly computes the <b>length</b> of L?',
+                type: MULTIPLE_CHOICE,
+                txt: '<code>[“cat”; “dog”; “zebra”]<br>[22; 19; 88; 0; 123; 99]</code>',
+                answers: [
+                    {
+                        id: 1,
+                        answer: '<p><code><font color="blue">let rec</font> length L = <br><font color="blue">match</font> L <font color="blue">with</font><br>| []      -> 0<br>' +
+                            '| e::rest -> 1 + length rest</code></p>',
+                        right: true
+                    },
+                    {
+                        id: 2,
+                        answer: '<p><code><font color="blue">let rec</font> length L = <br><font color="blue">match</font> L <font color="blue">with</font><br>| []      -> 0<br>' +
+                            '| e::rest -> e + length rest</code></p>'
+
+                    }
+                ]
             },
             {
                 id: 5,
