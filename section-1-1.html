@@ -46,6 +46,14 @@
 
         var items = [
             {
+                id:0,
+                question: 'read the code',
+                type: TEXT,
+                txt: '<code>#light<br>let rec factorial n = <br>match n with <br>| 0 -> 1<br>| _ -> n * factorial (n-1)' +
+                    '<br>[<EntryPoint>]<br>let main argv =<br>printfn ""<br><br>let R = factorial 5<br>printfn "%A" R'+
+                    '<br><br>printfn ""<br>printfn ""<br>0</code>'
+            },
+            {
                 id: 0,
                 question: 'What is F#?',
                 type: TEXT,
