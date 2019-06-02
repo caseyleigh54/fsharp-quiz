@@ -103,11 +103,46 @@
             },
             {
                 id: 5,
-                question: 'F# infers types...',
+                question: 'F# infers types: Concrete Type',
                 type: TEXT,
-                txt: 'A concrete type: sum function would take a list of int and return an int'+
-                    '<p>A concrete type: sum function would take a list of float and return a float.<br><br><mark>The comments appear automatically when using Visual Studio Code</mark><br><img src="img/concrete_fun.png"></img></p>'
+                txt: '<p>A concrete type: sum function would take a list of float and return a float.<br><br><mark>The comments appear automatically when using Visual Studio Code</mark><br></p>' +
+                    '    <code><font style="color: blue">let rec</font> sum L <font style="color: blue">=</font> <font style="color: gray">//float list -> float</font><br>&nbsp;  <font style="color: blue">match</font> L <font style="color: blue">with</font>'+ 
+        '<br>&nbsp;  | [] -> 0.0<br>&nbsp;  | hd::tail -> hd + sum tail<br></code>'
                 
+            },
+            {
+                id: 6,
+                question: 'F# infers types: Generic Type',
+                type: TEXT,
+                txt: "<p>The generic type <b>'a</b> occurs when it is not dependent on the type for example the length of a list function, it doesnt matter what the type of the list is because it will always return an integer. <br><br><mark>The comments appear automatically when using Visual Studio Code</mark><br></p>" +
+                    '    <code><font style="color: blue">let rec</font> length L <font style="color: blue">=</font> <font style="color: gray">' + "//'a list -> int"+'</font><br>&nbsp;  <font style="color: blue">match</font> L <font style="color: blue">with</font>'+ 
+        '<br>&nbsp;  | [] -> 0<br>&nbsp;  | e::rest -> 1 + length rest<br></code>'
+                
+            },
+            {
+                id: 7,
+                question: 'Type Inference Question',
+                type: FILL_IN_BLANKS,
+                txt: 'A function maps a domain to a range:  F: domain -> range, where domain and range are types (e.g. int or string).  How would you define the domain and range for our length function?<br><br>'+
+                '<code><font style="color: blue">let rec</font> length L <font style="color: blue">=</font><br>&nbsp;<font style="color: blue">match</font> L <font style="color: blue">with</font><br>&nbsp;.<br>&nbsp;.<br><br>' + "length: 'a list -> </code>",
+                answers: [
+                    {
+                        id: 1,
+                        answer: 'int'
+                    }
+                ]
+            },{
+                id: 7,
+                question: 'Suppose L is a list.  Write a function that returns true if L contains x, and false if not.',
+                type: FILL_IN_BLANKS,
+                txt: '<code><font style="color: blue">let </font>rec contains x L <font style="color: blue">=</font><br>&nbsp;  <font style="color: blue">match</font> L <font style="color: blue">with</font><br>&nbsp;  | [] -> false' +
+            '<br>&nbsp; | hd::tl when x = hd -> true<br>&nbsp; |  _::tl -> ',
+                answers: [
+                    {
+                        id: 1,
+                        answer: 'contains x tl'
+                    }
+                ]
             },
             {
                 id: 2,
@@ -192,6 +227,7 @@
             else {
                 nextButton.style.background = '#01bcd5'
                 step++
+                correct = true
                 updateQuestion()
                 updateSteps()
             }

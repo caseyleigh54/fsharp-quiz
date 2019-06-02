@@ -13,6 +13,15 @@ let rec length L =
   | []      -> 0
   | e::rest -> 1 + length rest
 
+
+
+let rec2 contains x L = 
+  match L with
+  | []                 -> false
+  | hd::tl when x = hd -> true
+  |   _::tl             -> contains x tl
+
+
 [<EntryPoint>]
 let main argv =
   printfn ""

@@ -1,6 +1,16 @@
 <p>
-    A concrete type: sum function would take a list of float and return a float.<br><br><mark>The comments appear automatically when using Visual Studio Code</mark>
-    <br><img src="img/concrete_fun.png"></img>
+    <code><font style="color: blue">let rec</font> sum L <font style="color: blue">=</font> <font style="color: gray">//float list -> float</font>
+        <br>&nbsp;  <font style="color: blue">match</font> L <font style="color: blue">with</font> 
+        <br>&nbsp;  | [] -> 0.0
+        <br>&nbsp;  | hd::tail -> hd + sum tail<br>
+    </code>
+    <code>
+            <font style="color: blue">let </font>rec contains x L <font style="color: blue">=</font>
+            <br>&nbsp;  <font style="color: blue">match</font> L <font style="color: blue">with</font>
+            <br>&nbsp;  | [] -> false
+            <br>&nbsp; | hd::tl when x = hd -> true
+            <br>&nbsp; |  _::tl -> contains x tl
+      </code>
 </p>
 <!-- 
 {
