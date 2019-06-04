@@ -47,9 +47,103 @@
         var items = [
             {
                 id: 0,
-                question: 'Title',
+                question: 'Two Functional Programming Styles',
                 type: TEXT,
-                txt: 'Text Section'
+                txt: '<p><strong>Higher order</strong></p><p>Example:</p><p><code>List.map F L</code></p><p>[ 59; 79; 82; 42; . . .] -&gt;&nbsp;[ F(59); F(79); F(82); F(42); . . .]</p>' +
+                '<p><strong>Recursive</strong></p>' +
+                '<p>process 1st element</p>'+
+                '<p>[ 59; 79; 82; 42; . . .] -&gt; [ F(59); 79; 82; 42; . . .]&nbsp;</p>'+
+                '<p>recursively process remaining elements</p>' +
+                '<p>[ 59; 79; 82; 42; . . .] -&gt; [ F(59); F(79); 82; 42; . . .]&nbsp;</p>'
+            },
+            {
+                id: 0,
+                question: 'Standard Deviation Example',
+                type: TEXT,
+                txt: '<p>2, 4, 4, 4, 5, 7, 9</p>' +
+                    '<p>These eight data points have the mean of 5:</p>' +
+                    '<p>(2 + 4 + 4 + 4 + 5 + 7 + 9) / 8 = 5</p>' +
+                    '<p>First, calculate the difference of each data point from the mean, and square the result of each:</p>' +
+                    '<table width="258">' +
+                    '<tbody>' +
+                    '<tr>' +
+                    '<td>(2-5)&sup2; = 9</td>' +
+                    '<td>(5-5)&sup2; = 0</td>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<td>(4-5)&sup2; = 1</td>' +
+                    '<td>(5-5)&sup2; = 0</td>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<td>(4-5)&sup2; = 1</td>' +
+                    '<td>(7-5)&sup2; = 4</td>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<td>(4-5)&sup2; = 1</td>' +
+                    '<td>&nbsp;(9-5)&sup2; = 16</td>' +
+                    '</tr>' +
+                    '</tbody>' +
+                    '</table>' +
+                    '<p>Next, calculate the mean of these values, and take the square root:</p>' +
+                    '<p>&radic;((9+1+1+1+0+0+4+16)/8) = 2</p>' 
+            },
+            {
+                id: 0,
+                question: 'Std Dev in F#',
+                type: TEXT,
+                txt: '<b>Read the following code carefully:</b><br>'+
+                '<p><code><code></code></code></p>' +
+                    '<div>#light</div>' +
+                    '<p><code><code></code></code></p>' +
+                    '<p>&nbsp;</p>' +
+                    '<p><code><code></code></code></p>' +
+                    '<div>[&lt;EntryPoint&gt;]</div>' +
+                    '<p><code><code></code></code></p>' +
+                    '<div><span style="color: #3366ff;">let</span> main argv <span style="color: #3366ff;">=</span></div>' +
+                    '<p><code><code></code></code></p>' +
+                    '<div>&nbsp; <span style="color: #3366ff;">let</span> data_array <span style="color: #3366ff;">=</span> System.IO.File.ReadAllLines<span style="color: #3366ff;">(</span>"<span style="color: #ff0000;">data.txt</span>"<span style="color: #3366ff;">)</span></div>' +
+                    '<p><code><code></code></code></p>' +
+                    '<div>&nbsp; <span style="color: #3366ff;">let</span> data_list <span style="color: #3366ff;">=</span> Array.toList data_array</div>' +
+                    '<div>&nbsp;</div>' +
+                    '<p><code><code></code></code></p>' +
+                    '<div>&nbsp; <span style="color: #3366ff;">let</span> values <span style="color: #3366ff;">=</span> List.map (fun s -&gt; float s) data<span style="color: #3366ff;">_</span>list</div>' +
+                    '<p><code><code></code></code></p>' +
+                    '<div>&nbsp;</div>' +
+                    '<div>&nbsp; <span style="color: #3366ff;">let</span> sum <span style="color: #3366ff;">=</span> List.reduce <span style="color: #3366ff;">(fun</span> x y <span style="color: #3366ff;">-&gt;</span> x <span style="color: #3366ff;">+</span> y<span style="color: #3366ff;">)</span> values</div>' +
+                    '<p><code><code></code></code></p>' +
+                    '<div>&nbsp; <span style="color: #3366ff;">let</span> mean <span style="color: #3366ff;">=</span> sum <span style="color: #3366ff;">/</span> float <span style="color: #3366ff;">(</span>List.length values<span style="color: #3366ff;">)</span></div>' +
+                    '<p><code><code></code></code></p>' +
+                    '<div>&nbsp;<span style="color: #3366ff;"> let</span> diffs = List.map <span style="color: #3366ff;">(fun</span> x <span style="color: #3366ff;">-&gt;(</span>x-mean<span style="color: #3366ff;">)</span>**<span style="color: #339966;">2.0</span><span style="color: #3366ff;">)</span> values</div>' +
+                    '<p><code><code></code></code></p>' +
+                    '<div>&nbsp;</div>' +
+                    '<div>&nbsp; <span style="color: #3366ff;">let</span> sum2 <span style="color: #3366ff;">=</span> List.reduce <span style="color: #3366ff;">(fun</span> x y <span style="color: #3366ff;">-&gt;</span> x <span style="color: #3366ff;">+</span> y<span style="color: #3366ff;">)</span> diffs</div>' +
+                    '<p><code><code></code></code></p>' +
+                    '<div>&nbsp; <span style="color: #3366ff;">let</span> mean2 <span style="color: #3366ff;">=</span> sum2 <span style="color: #3366ff;">/</span> float <span style="color: #3366ff;">(</span>List.length diffs<span style="color: #3366ff;">)</span></div>' +
+                    '<p><code><code></code></code></p>' +
+                    '<div>&nbsp; <span style="color: #3366ff;">let</span> result <span style="color: #3366ff;">=</span> sqrt mean2</div>' +
+                    '<p><code><code></code></code></p>' +
+                    '<div>&nbsp; printfn "<span style="color: #ff0000;">std dev:</span> <span style="color: #3366ff;">%A</span>" result</div>' +
+                    '<p><code><code></code></code></p>' +
+                    '<div>&nbsp;<span style="color: #339966;"> 0</span></div>' +
+                    '<p><code><code></code></code></p>' +
+                    '<p>&nbsp;</p>'
+            },
+            {
+                id: 0,
+                question: 'Lets break down the code...',
+                type: TEXT,
+                txt: '<div style="background-color: WhiteSmoke"<p><code><code></code></code></p>' +
+                    '<p><code><code></code></code></p>' +
+                    '<p><code><code></code></code></p>' +
+                    '<div><span style="color: #3366ff;">let</span> data_array <span style="color: #3366ff;">=</span> System.IO.File.ReadAllLines<span style="color: #3366ff;">(</span>"<span style="color: #ff0000;">data.txt</span>"<span style="color: #3366ff;">)</span></div>' +
+                    '<p><code><code></code></code></p>' +
+                    '<div><span style="color: #3366ff;">let</span> data_list <span style="color: #3366ff;">=</span> Array.toList data_array</div>' +
+                    '<p><code><code></code></code></p>' +
+                    '<p>&nbsp;</p>'+
+                    '<div><span style="color: #3366ff;">let</span> values <span style="color: #3366ff;">=</span> List.map (fun s -&gt; float s) data<span style="color: #3366ff;">_</span>list</div>' +
+                    '</div><br> <p>Apply <strong>functions</strong> to transform the data to the answer&hellip;</p>'+
+                    '<p><span style="color: #3366ff;"><strong>data_list</strong><strong>:&nbsp;</strong></span>[&ldquo;2&rdquo;;&ldquo;4&rdquo;;&ldquo;4&rdquo;;&ldquo;4&rdquo;;&ldquo;5&rdquo;;&ldquo;5&rdquo;;&ldquo;7&rdquo;;&ldquo;9&rdquo;]</p>' +
+                    '<p><span style="color: #3366ff;"><strong>values:&nbsp;</strong></span>[2.0;4.0;4.0;4.0;5.0;5.0;7.0;9.0]</p>'
             },
             {
                 id: 5,
