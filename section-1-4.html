@@ -146,53 +146,40 @@
                     '<p><span style="color: #3366ff;"><strong>values:&nbsp;</strong></span>[2.0;4.0;4.0;4.0;5.0;5.0;7.0;9.0]</p>'
             },
             {
-                id: 5,
-                question: 'Fill in the Blanks Question',
-                type: FILL_IN_BLANKS,
-                txt: 'The answer is "Answer"',
-                answers: [
-                    {
-                        id: 1,
-                        answer: 'Answer'
-                    }
-                ]
+                id: 0,
+                question: 'Lets break down the code...',
+                type: TEXT,
+                txt: '<div style="background-color: WhiteSmoke"><code ><p>let sum&nbsp;&nbsp; = <span style="color: #3366ff;">List.reduce</span> (fun x y -&gt; x + y) values</p>' +
+                        '<p>let mean&nbsp; = sum / float (<span style="color: #3366ff;">List.length</span> values)</p>' +
+                        '<p>let diffs = <span style="color: #3366ff;">List.map</span> (fun x -&gt; (x-mean)**2.0) values</p>' +
+                        '</code></div>' +
+                        'values: [2.0;4.0;4.0;4.0;5.0;5.0;7.0;9.0]<br>' +
+                        'diffs: [9.0;1.0;1.0;1.0;0.0;0.0;4.0;16.0]'
             },
             {
-                id: 2,
-                question: 'Multiple Choice Question',
-                type: MULTIPLE_CHOICE,
-                txt: 'Question... <br>The answer is "Answer 1"',
-                answers: [
-                    {
-                        id: 1,
-                        answer: 'Answer 1',
-                        right: true
-                    },
-                    {
-                        id: 2,
-                        answer: 'Answer 2'
-
-                    }
-                ]
-            },
-            {
-                id: 6,
-                question: 'Drag n Drop Question',
-                type: DRAG_N_DROP,
-                txt: 'Text Section... ',
-                answers: [
-                    {
-                        id: 1,
-                        answer: 'Answer 1',
-                        right: true
-                    },
-                    {
-                        id: 2,
-                        answer: 'Answer 2'
-
-                    }
-                ]
-            },
+                id: 0,
+                question: 'Lets break down the code...',
+                type: TEXT,
+                txt: '<p>Remember: diffs =&nbsp;[9.0;1.0;1.0;1.0;0.0;0.0;4.0;16.0]</p>' + '<div style="background-color: WhiteSmoke">' +
+                        '<code>' +
+                        '<p>let sum2&nbsp; = <span style="color: #3366ff;">List.reduce</span> (fun x y -&gt; x + y) diffs</p>' +
+                        '<p>let mean2 = sum2 / float (<span style="color: #3366ff;">List.length</span> diffs)</p>' +
+                        '<p>let result = sqrt mean2</p>' +
+                        '<p>printfn "std dev: %A" result</p>' +
+                        '  </code>' +
+                        '<p>&nbsp;</p>' +
+                        '<p>Result = 2.0</p>'
+                },
+                {
+                id: 0,
+                question: 'Observations',
+                type: TEXT,
+                txt: '<p><strong>No variables!!!&nbsp; </strong></p>' +
+                        '<ul>'+
+                        '<li><em> we give </em><strong><em>names</em></strong><em> to </em><strong><em>values</em></strong><em> --- once assigned, never change</em></li>' +
+                        '<li><em>values in F# are immutable</em></li>'+
+                        '</ul>'
+                },
             {
                 id: 7,
                 question: 'Completed!',

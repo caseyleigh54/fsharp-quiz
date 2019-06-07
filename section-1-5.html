@@ -46,41 +46,70 @@
 
         var items = [
             {
-                id: 0,
-                question: 'Title',
-                type: TEXT,
-                txt: 'Text Section'
-            },
-            {
-                id: 5,
-                question: 'Fill in the Blanks Question',
-                type: FILL_IN_BLANKS,
-                txt: 'The answer is "Answer"',
-                answers: [
-                    {
-                        id: 1,
-                        answer: 'Answer'
-                    }
-                ]
-            },
-            {
-                id: 2,
-                question: 'Multiple Choice Question',
+                id: 1,
+                question: 'Suppose L contains 4 elements.  How deep (i.e. how many stack frames) does it take to sum the contents of L?',
                 type: MULTIPLE_CHOICE,
-                txt: 'Question... <br>The answer is "Answer 1"',
+                txt: '<code><p>let rec <span style="color: #3366ff;"><strong>sum</strong> </span>L =</p>' +
+                        '<p>&nbsp; match L with</p>' +
+                        '<p>&nbsp; | []&nbsp;&nbsp;&nbsp;&nbsp; -&gt; 0</p>' +
+                        '<p>&nbsp; | hd::tl -&gt; hd + <span style="color: #3366ff;"><strong>sum</strong> </span>tl</p>',
                 answers: [
                     {
                         id: 1,
-                        answer: 'Answer 1',
+                        answer: '1',
                         right: true
                     },
                     {
                         id: 2,
-                        answer: 'Answer 2'
+                        answer: '2'
+
+                    },
+                    {
+                        id: 3,
+                        answer: '4'
+
+                    },
+                    {
+                        id: 4,
+                        answer: '5'
+
+                    },
+                    {
+                        id: 5,
+                        answer: '25'
 
                     }
                 ]
             },
+            {
+                id: 0,
+                question: 'Execution Model',
+                type: TEXT,
+                txt:  '<p>List =&nbsp;[ 30;18;78;42;12 ]</p>' +
+                    '<p>let rec <span style="color: #3366ff;"><strong>sum</strong></span> L =</p>' +
+                    '<p>&nbsp; match L with</p>' +
+                    '<p>&nbsp; | [ ]&nbsp;&nbsp;&nbsp; -&gt; 0</p>' +
+                    '<p style="text-align: left;">&nbsp; | hd::tl -&gt; hd + <span style="color: #3366ff;"><strong>sum</strong></span> tl</p>' +
+                    '<p style="text-align: center;">&nbsp;</p>' +
+                    '<p style="text-align: center;">The Stack</p>' +
+                '<p style="text-align: center;">[30;18;78;42;12]&nbsp;</p>' +
+                        '<p style="text-align: center;">&dArr;</p>' +
+                        '<p style="text-align: center;">30 + [18;78;42;12]</p>' +
+                        '<p style="text-align: center;">&dArr;</p>' +
+                        '<p style="text-align: center;">18 + [78;42;12]</p>' +
+                        '<p style="text-align: center;">&dArr;</p>' +
+                        '<p style="text-align: center;">78 + [42;12]</p>' +
+                        '<p style="text-align: center;">&dArr;</p>' +
+                        '<p style="text-align: center;">42 + [12]</p>' +
+                        '<p style="text-align: center;">&dArr;</p>' +
+                        '<p style="text-align: center;">12 + []</p>' +
+                        '<p style="text-align: center;">&dArr;</p>' +
+                        '<p style="text-align: center;">0</p>' +
+                        '<p style="text-align: center;">&nbsp;</p>' +
+                        '<div>Go back up the recursive tree...</div>' +
+                        '<div>0 + 12 + 42 + 78 + 18 + 30 = 180</div>'
+
+                },
             {
                 id: 6,
                 question: 'Drag n Drop Question',
