@@ -56,22 +56,13 @@
                 answers: [
                     {
                         id: 1,
-                        answer: '1',
-                        right: true
-                    },
-                    {
-                        id: 2,
-                        answer: '2'
-
-                    },
-                    {
-                        id: 3,
-                        answer: '4'
-
+                        answer: '1'
+                        
                     },
                     {
                         id: 4,
-                        answer: '5'
+                        answer: '5',
+                        right: true
 
                     },
                     {
@@ -110,24 +101,54 @@
                         '<div>0 + 12 + 42 + 78 + 18 + 30 = 180</div>'
 
                 },
-            {
-                id: 6,
-                question: 'Drag n Drop Question',
-                type: DRAG_N_DROP,
-                txt: 'Text Section... ',
-                answers: [
-                    {
-                        id: 1,
-                        answer: 'Answer 1',
-                        right: true
-                    },
-                    {
-                        id: 2,
-                        answer: 'Answer 2'
-
-                    }
-                ]
-            },
+                {
+                    id: 0,
+                    question: 'Suppose L is a list of integers.  Write a recursive function that adds 1 to each element of L, returning a new list.',
+                    type: TEXT,
+                    txt:'<p><em>[ </em><u><em>Hint</em></u><em>: use the :: operator, which constructs a new list from an element and a list. ]</em></p>' +
+                            '<p>&nbsp;</p>' +
+                            '<p><span style="background-color: #ffff00;">[ 59; 79; 82; -1 ]</span>&nbsp;&rArr;&nbsp;<span style="background-color: #00ff00;">[ 60; 80; 83; 0 ]</span></p>' +
+                            '<p>&nbsp;</p>'
+                },
+                {
+                    id: 0,
+                    question: 'One answer...',
+                    type: TEXT,
+                    txt: '<p>let rec <span style="color: #3366ff;"><strong>addone</strong></span><strong> L</strong> =</p>' +
+                            '<p>&nbsp; match L with</p>' +
+                            '<p>&nbsp; | []&nbsp;&nbsp;&nbsp;&nbsp; -&gt; []</p>' +
+                            '<p>&nbsp; | hd::tl -&gt; (hd+1) :: (<span style="color: #3366ff;">addone</span> tl)</p>' +
+                            '<p>&nbsp;</p>'
+                },
+                {
+                    id: 0,
+                    question: 'Two Functional Programming Styles',
+                    type: TEXT,
+                    txt: '<p><strong><em><span style="background-color: #ff0000;">#1</span> Recursive</em></strong></p>' +
+                            '<p>[ 59;&nbsp;&nbsp; 79;&nbsp;&nbsp; 82;&nbsp;&nbsp; 42;&nbsp; . . .]</p>' +
+                            '<p>process 1st element&nbsp;</p>' +
+                            '<p>[ <span style="background-color: #ff0000;">?</span> 79;&nbsp;&nbsp; 82;&nbsp;&nbsp; 42;&nbsp; . . .]</p>' +
+                            '<p>recursively process remaining elements</p>' +
+                            '<p>[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; . . .&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ]</p>' +
+                            '<p>&nbsp;</p>'
+                },
+                {
+                    id: 0,
+                    question: 'Two Functional Programming Styles',
+                    type: TEXT,
+                    txt: '<p><strong><em><span style="background-color: #ff0000;">#2</span></em></strong><strong><em>&nbsp;Higher order</em></strong></p>' +
+                        '<p><span style="color: #3366ff;"><strong>List.map</strong><strong>&nbsp; F&nbsp; L&nbsp;</strong></span></p>' +
+                        '<p><span style="background-color: #ffff00;">[ 59;&nbsp;&nbsp; 79;&nbsp;&nbsp; 82;&nbsp;&nbsp; 42;&nbsp; . . .]</span></p>' +
+                        '<p>[ F(59);&nbsp; &nbsp;F(79);&nbsp; F(82);&nbsp; &nbsp;F(42);&nbsp; . . .]</p>' +
+                        '<p><em>Given a list, maps a function F across each element, building a </em><u><em>new list</em></u></p>' +
+                        '<ul>' +
+                        '<li><strong>Use </strong><strong>List.map</strong><strong> when you have a list, and you want a new list</strong></li>' +
+                        '<li><strong>Variants:</strong></li>' +
+                        '</ul>' +
+                        '<p>&ndash;<em>List.filter</em><em> to a subset</em></p>' +
+                        '<p><u><em>List.reduce to a single value</em></u></p>' +
+                        '<p>&nbsp;</p>'
+                },
             {
                 id: 7,
                 question: 'Completed!',

@@ -47,9 +47,83 @@
         var items = [
             {
                 id: 0,
-                question: 'Title',
+                question: 'Lists',
                 type: TEXT,
-                txt: 'Text Section'
+                txt: '<p><strong>In functional programming, </strong><strong>lists are THE data structure</strong></p>' +
+                    '<p>&ndash;<em>F#:&nbsp; </em><strong><em>[1; 2; 3]</em></strong></p>' +
+                    '<p>&ndash;<em>LISP:&nbsp; </em><strong><em>(1 2 3)</em></strong></p>' +
+                    '<p>&ndash;<em>Haskell:&nbsp; </em><strong><em>[1, 2, 3]</em></strong></p>' +
+                    '<p>&nbsp;</p>' +
+                    '<p><strong>LISP was the first functional programming language</strong></p>' +
+                    '<p><strong>In LISP, even the programs are lists:</strong></p>' +
+                    '<p>&nbsp;</p>' +
+                    '<div style="background-color: WhiteSmoke">' +
+                    '<p>(defun <strong>sum</strong>(list)&nbsp;&nbsp;&nbsp;</p>' +
+                    '<p>&nbsp;&nbsp;&nbsp; (if (null list)</p>' +
+                    '<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0</p>' +
+                    '<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (+</p>' +
+                    '<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (car list)</p>' +
+                    '<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (sum (cdr list))</p>' +
+                    '<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )&nbsp;&nbsp;</p>' +
+                    '<p>&nbsp;&nbsp;&nbsp; )&nbsp;&nbsp;</p>' +
+                    '<p>)</p>' +
+                    '</div>'
+            },
+            {
+                id: 0,
+                question: 'Summary:  List Operations',
+                type: TEXT,
+                txt: '<table style="height: 27px;" width="493">' +
+                        '<tbody>' +
+                        '<tr>' +
+                        '<td style="width: 238px;">' +
+                        '<p><strong>Creating lists</strong></p>' +
+                        '</td>' +
+                        '<td style="width: 239px;">&nbsp;<strong>Deconstructing lists</strong></td>' +
+                        '</tr>' +
+                        '<tr>' +
+                        '<td style="width: 238px;">' +
+                        '<p>let L1 = <span style="color: #3366ff;"><strong>[</strong></span> 1; 2; 3 <span style="color: #3366ff;"><strong>]</strong></span></p>'  +
+                        '<p>let L2 = <span style="color: #3366ff;"><strong>[</strong></span> 4; 5; 6 <span style="color: #3366ff;"><strong>]</strong></span></p>'  +
+                        '<p><em>// </em><strong><em>@</em></strong><em> concatenates 2 lists</em></p>' +
+                        '<p>let L3 = L1 <span style="color: #3366ff;"><strong>@</strong></span> L2</p>' +
+                        '<p><em>// </em><strong><em>::</em></strong> <em>concats</em><em> an element and a list</em></p>' +
+                        '<p>let L4 = 0 <strong>:: </strong>L3</p>' +
+                        '</td>' +
+                        '<td style="width: 239px;">' +
+                        '<p>let L = [ 1; 2; 3; 4 ]</p>' +
+                        '<p>let x = (<span style="color: #3366ff;"><strong>List.head</strong></span> L)</p>' +
+                        '<p>let y = (<span style="color: #3366ff;"><strong>List.tail</strong> </span>L)</p>' +
+                        '<p><em>// use </em><strong><em>::</em></strong><em> to deconstruct head, tail</em></p>' +
+                        '<p>let e<strong>::</strong>rest = L</p>' +
+                        '<p><em>// use pattern matching</em></p>' +
+                        '<p><span style="color: #3366ff;"><strong>match</strong> </span>L with</p>' +
+                        '<p>| []&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; ...</p>' +
+                        '<p>| e::rest -&gt; ...</p>' +
+                        '</td>' +
+                        '</tr>' +
+                        '</tbody>' +
+                        '</table>'
+            },
+            {
+                id: 0,
+                question: 'List  ==  linked-list',
+                type: TEXT,
+                txt:'<p><strong>Why use linked-lists?</strong></p>' +
+                    '<p>&ndash;<em>A list is easily defined as a pointer to a node</em></p>' +
+                    '<ul>' +
+                    '<li>List.tail is a list</li>' +
+                    '</ul>' +
+                    '<p>&ndash;<em>Recursion supported by just walking down the list</em></p>'
+            },
+            {
+                id: 0,
+                question: 'List  ==  linked-list',
+                type: TEXT,
+                txt: '<div class="row3"><div class="column"><img style="width: 30%;height: 30%;" src="img/list1.png"></img></div>'+
+                '<div class="column"></div>' +
+                '<div class="column"></div>' +
+                '</div>'
             },
             {
                 id: 5,
