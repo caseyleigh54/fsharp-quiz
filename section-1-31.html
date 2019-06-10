@@ -46,62 +46,49 @@
 
         var items = [
             {
-                id: 0,
-                question: 'Writing Code in F#',
+                id: 5,
+                question: 'F# infers types: Concrete Type',
                 type: TEXT,
-                txt: '<b>Read the following code:</b><br><br>'+'<code>#light<br>let rec factorial n = <br>match n with <br>| 0 -> 1<br>| _ -> n * factorial (n-1)' +
-        '<br><br>[&#60;EntryPoint&#62;]<br>let main argv =<br>printfn ""<br><br>let R = factorial 5<br>printfn "%A" R'+
-        '<br><br>printfn ""<br>printfn ""<br>0</code>' 
+                txt: '<p>A concrete type: sum function would take a list of float and return a float.<br><br><mark>The comments appear automatically when using Visual Studio Code</mark><br></p>' +
+                    '    <code><font style="color: blue">let rec</font> sum L <font style="color: blue">=</font> <font style="color: gray">//float list -> float</font><br>&nbsp;  <font style="color: blue">match</font> L <font style="color: blue">with</font>'+ 
+        '<br>&nbsp;  | [] -> 0.0<br>&nbsp;  | hd::tail -> hd + sum tail<br></code>'
+                
             },
             {
-                id: 1,
-                question: 'Things to notice...',
+                id: 6,
+                question: 'F# infers types: Generic Type',
                 type: TEXT,
-                txt: '<code>#light<br>let rec factorial n = <br>match n with <br>| 0 -> 1<br>| _ -> n * factorial (n-1)</code>'+
-                '<p><ul><li>Case sensitive</li><li>#light ==> indentation sensitive</li><li>no ; and no { }</li><li><b>Use spaces</b>, not tabs.</li></ul></p>'
+                txt: "<p>The generic type <b>'a</b> occurs when it is not dependent on the type for example the length of a list function, it doesnt matter what the type of the list is because it will always return an integer. <br><br><mark>The comments appear automatically when using Visual Studio Code</mark><br></p>" +
+                    '    <code><font style="color: blue">let rec</font> length L <font style="color: blue">=</font> <font style="color: gray">' + "//'a list -> int"+'</font><br>&nbsp;  <font style="color: blue">match</font> L <font style="color: blue">with</font>'+ 
+        '<br>&nbsp;  | [] -> 0<br>&nbsp;  | e::rest -> 1 + length rest<br></code>'
+                
             },
             {
-                id: 2,
-                question: 'Things to notice...',
-                type: TEXT,
-                txt: '<code>#light<br>let rec factorial n = <br>match n with <br>| 0 -> 1<br>| _ -> n * factorial (n-1)</code>'+
-                '<p><ul><li>Recursive function declaration</li><li>Base and inductive cases…</li><li>Function type inferred:<br><b>val factorial : int -> int</b></li></ul></p>'+
-                '<mark>the type inference will show up in your F# editor like this… </mark>'
-            },
-            {
-                id: 2,
-                question: 'Things to notice...',
-                type: TEXT,
-                txt: '<code>let R = factorial 5 </code>' + '<p>no <b>( )</b> when calling a function</p>'+
-                    '<code>printfn "%A" R</code>'+ '<p><b>A</b>nything – The A stands for anything, you do not need to declare what type it is<p></p>'
-            },
-            {
-                id: 2,
-                question: 'Which function correctly computes the <b>length</b> of L?',
-                type: MULTIPLE_CHOICE,
-                txt: '<code>L is list: [“cat”; “dog”; “zebra”]</code>',
+                id: 7,
+                question: 'Type Inference Question',
+                type: FILL_IN_BLANKS,
+                txt: 'A function maps a domain to a range:  F: domain -> range, where domain and range are types (e.g. int or string).  How would you define the domain and range for our length function?<br><br>'+
+                '<code><font style="color: blue">let rec</font> length L <font style="color: blue">=</font><br>&nbsp;<font style="color: blue">match</font> L <font style="color: blue">with</font><br>&nbsp;.<br>&nbsp;.<br><br>' + "length: 'a list -> </code>",
                 answers: [
                     {
                         id: 1,
-                        answer: '<p><code><font color="blue">let rec</font> length L = <br><font color="blue">match</font> L <font color="blue">with</font><br>| []      -> 0<br>' +
-                            '| e::rest -> 1 + length rest</code></p>',
-                        right: true
-                    },
+                        answer: 'int'
+                    }
+                ]
+            },{
+                id: 7,
+                question: 'Suppose L is a list.  Write a function that returns true if L contains x, and false if not.',
+                type: FILL_IN_BLANKS,
+                txt: '<code><font style="color: blue">let </font>rec contains x L <font style="color: blue">=</font><br>&nbsp;  <font style="color: blue">match</font> L <font style="color: blue">with</font><br>&nbsp;  | [] -> false' +
+            '<br>&nbsp; | hd::tl when x = hd -> true<br>&nbsp; |  _::tl -> ',
+                answers: [
                     {
-                        id: 2,
-                        answer: '<p><code><font color="blue">let rec</font> length L = <br><font color="blue">match</font> L <font color="blue">with</font><br>| []      -> 0<br>' +
-                            '| e::rest -> e + length rest</code></p>'
-
-                    },
-                    {
-                        id: 3,
-                        answer: '<p><code><font color="blue">let rec</font> length L = <br><font color="blue">match</font> L <font color="blue">with</font><br>| []      -> 0<br>' +
-                            '| e::[]   -> 1<br>| e::rest -> 2 + length rest</code></p>'
-
+                        id: 1,
+                        answer: 'contains x tl'
                     }
                 ]
             },
-            
+
             {
                 id: 7,
                 question: 'Completed!',

@@ -107,7 +107,7 @@
             },
             {
                 id: 0,
-                question: 'List  ==  linked-list',
+                question: 'Which is the most accurate memory layout?',
                 type: TEXT,
                 txt:'<p><strong>Why use linked-lists?</strong></p>' +
                     '<p>&ndash;<em>A list is easily defined as a pointer to a node</em></p>' +
@@ -118,58 +118,56 @@
             },
             {
                 id: 0,
-                question: 'List  ==  linked-list',
+                question: 'Memory Layout',
                 type: TEXT,
-                txt: '<div class="row3"><img style="width: 60%;height: 60%;" src="img/list1.png"></img></div>'
+                txt: '<p>Consider the following code:</p>' +
+                '<p>let <span style="color: #3366ff;"><strong>main</strong></span> argv =</p>' +
+                '<p>&nbsp; let L1 = [1; 2; 3; 4]</p>' +
+                '<p>&nbsp; let hd = (List.head L1)</p>' +
+                '<p>&nbsp; let tl = (List.tail L1)</p>' +
+                '<p>Below is what the memory layout of this code looks like</p>' +
+                '<div class="row3"><img style="width: 60%;height: 60%;" src="img/list1.png"></img></div>'
                 
             },
+            
             {
-                id: 5,
-                question: 'Fill in the Blanks Question',
-                type: FILL_IN_BLANKS,
-                txt: 'The answer is "Answer"',
-                answers: [
-                    {
-                        id: 1,
-                        answer: 'Answer'
-                    }
-                ]
+                id: 0,
+                question: 'Observations…',
+                type: TEXT,
+                txt: '<p>let <span style="color: #3366ff;"><strong>main</strong></span> argv =</p>' +
+                '<p>&nbsp; let L1 = [1; 2; 3; 4]</p>' +
+                '<p>&nbsp; let hd = (List.head L1)</p>' +
+                '<p>&nbsp; let tl = (List.tail L1)</p>' + 
+                '<p><strong>Is the </strong><strong>head</strong><strong> of a list an element, or a list?</strong></p>' +
+                '<p><strong>Is the </strong><strong>tail</strong><strong> of a list an element, or a list?</strong></p>' +
+                '<p>&nbsp;</p>'
             },
             {
-                id: 2,
-                question: 'Multiple Choice Question',
-                type: MULTIPLE_CHOICE,
-                txt: 'Question... <br>The answer is "Answer 1"',
-                answers: [
-                    {
-                        id: 1,
-                        answer: 'Answer 1',
-                        right: true
-                    },
-                    {
-                        id: 2,
-                        answer: 'Answer 2'
-
-                    }
-                ]
+                id: 0,
+                question: 'What does L2 look like?  Recall that @ concatenates two lists together.',
+                type: TEXT,
+                txt: '<p>let <span style="color: #3366ff;"><strong>main</strong></span> argv =</p>' +
+                        '<p>&nbsp; let L1 = [1; 2; 3; 4]</p>' +
+                        '<p><strong>&nbsp; let L2 = L1 <span style="color: #3366ff;">@</span> [5]</strong></p>' +
+                        '<p>&nbsp;</p>' +
+                        '<div class="row3"><img style="width: 60%;height: 60%;" src="img/l2.png"></img></div>'
             },
             {
-                id: 6,
-                question: 'Drag n Drop Question',
-                type: DRAG_N_DROP,
-                txt: 'Text Section... ',
-                answers: [
-                    {
-                        id: 1,
-                        answer: 'Answer 1',
-                        right: true
-                    },
-                    {
-                        id: 2,
-                        answer: 'Answer 2'
-
-                    }
-                ]
+                id: 0,
+                question: 'Write a recursive function equivalent that returns true if lists L1 and L2 contain the same sequence of elements.',
+                type: TEXT,
+                txt: '<p>[ 42; 78; 12 ]&nbsp;[ 42; 78 ] &rArr;&nbsp;false</p>' +
+                        '<p>[ &ldquo;cat&rdquo;; &ldquo;dog&rdquo; ]&nbsp;[ &ldquo;cat&rdquo;; &ldquo;dog&rdquo; ] &rArr; true</p>' +
+                        '<code><p>// return true if L1 and L2 contain the same sequence of elements,</p>' +
+                        '<p>// otherwise return false:</p>' +
+                        '<p>//</p>' +
+                        '<p><strong>let rec </strong><strong>equivalent</strong><strong> L1 L2 =</strong></p>' +
+                        '<p><strong>&nbsp; match L1, L2 with</strong></p>' +
+                        '<p><strong>&nbsp; | [], [] -&gt;</strong></p>' +
+                        '<p><strong>&nbsp; | [], _&nbsp; -&gt;</strong></p>' +
+                        '<p><strong>&nbsp; | _,&nbsp; [] -&gt;</strong></p>' +
+                        '<p><strong>&nbsp; | e1::rest1, e2::rest2 -&gt;</strong></p>' +
+                        '<p>&nbsp;</p></code>'
             },
             {
                 id: 7,
