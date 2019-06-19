@@ -47,25 +47,23 @@
         var items = [
             {
                 id: 0,
-                question: 'Title',
+                question: 'Why Functional Programming?',
                 type: TEXT,
-                txt: 'Text Section'
-            },
-            {
-                id: 0,
-                question: 'Title',
-                type: TEXT,
-                txt: 'Text Section'
+                txt: '<p><span style="color: #3366ff;">#1 More declarative </span></p>' +
+                        '<p>More time declaring what you <u>want</u>, and less time specifying <u>how</u> to do it</p>' +
+                        '<p><span style="color: #3366ff;">#2 Lack of variables (&ldquo;side-effects&rdquo;) </span></p>' +
+                        '<p>Easier to reason about program correctness</p>'
             },
             {
                 id: 5,
                 question: 'Fill in the Blanks Question',
                 type: FILL_IN_BLANKS,
-                txt: 'The answer is "Answer"',
+                txt: '<p><span style="color: #3366ff;">let</span> R = 5</p>'+
+                        '<p>printfn <span style="color: #ff0000;">"%A"</span>',
                 answers: [
                     {
                         id: 1,
-                        answer: 'Answer'
+                        answer: 'R'
                     }
                 ]
             },
@@ -73,34 +71,39 @@
                 id: 2,
                 question: 'Multiple Choice Question',
                 type: MULTIPLE_CHOICE,
-                txt: 'Question... <br>The answer is "Answer 1"',
+                txt: 'Suppose L contains 4 elements.  How deep (i.e. how many stack frames) does it take to sum the contents of L?',
                 answers: [
                     {
                         id: 1,
-                        answer: '<img src="img/list1.png"></img>',
-                        right: true
+                        answer: '1'
+                    },
+                    {
+                        id: 1,
+                        answer: '2'
+                        
                     },
                     {
                         id: 2,
-                        answer: 'Answer 2'
+                        answer: '5',
+                        right: true
 
                     }
                 ]
             },
             {
                 id: 6,
-                question: 'Drag n Drop Question',
+                question: 'Concatenate two lists L1 and L2',
                 type: DRAG_N_DROP,
-                txt: 'Text Section... ',
+                txt: '<code>let L3 = L1 </code>',
                 answers: [
                     {
                         id: 1,
-                        answer: 'Answer 1',
+                        answer: '@ L2',
                         right: true
                     },
                     {
                         id: 2,
-                        answer: 'Answer 2'
+                        answer: '+ L2'
 
                     }
                 ]
